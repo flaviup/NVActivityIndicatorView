@@ -7,7 +7,7 @@ NVActivityIndicatorView
 
 # Introduction
 
-This is the fat library project for Xamarin iOS binding of [NVActivityIndicatorView](https://github.com/ninjaprox/NVActivityIndicatorView).
+This is the fat library project for [Xamarin iOS binding](https://github.com/flaviup/Xamarin.NVActivityIndicator) of [NVActivityIndicatorView](https://github.com/ninjaprox/NVActivityIndicatorView).
 
 `NVActivityIndicatorView` is a collection of awesome loading animations.
 
