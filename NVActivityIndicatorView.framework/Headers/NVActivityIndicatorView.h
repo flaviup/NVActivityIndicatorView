@@ -1,6 +1,6 @@
 //
-//  NVActivityIndicatorDelegate.swift
-//  NVActivityIndicatorViewDemo
+//  NVActivityIndicatorView.h
+//  NVActivityIndicatorView
 //
 // The MIT License (MIT)
 
@@ -25,8 +25,14 @@
 // SOFTWARE.
 //
 
-import UIKit
+#import <UIKit/UIKit.h>
 
-@objc public protocol NVActivityIndicatorAnimationDelegate {
-    func setUpAnimation(in layer: CALayer, size: CGSize, color: UIColor)
-}
+//! Project version number for NVActivityIndicatorView.
+FOUNDATION_EXPORT double NVActivityIndicatorViewVersionNumber;
+
+//! Project version string for NVActivityIndicatorView.
+FOUNDATION_EXPORT const unsigned char NVActivityIndicatorViewVersionString[];
+
+// In this header, you should import all the public headers of your framework using statements like #import <NVActivityIndicatorView/PublicHeader.h>
+
+

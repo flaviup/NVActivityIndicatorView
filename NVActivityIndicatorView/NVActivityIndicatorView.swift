@@ -63,7 +63,7 @@ import UIKit
  - Orbit:                   Orbit animation.
  - AudioEqualizer:          AudioEqualizer animation.
  */
-public enum NVActivityIndicatorType: Int {
+@objc public enum NVActivityIndicatorType: Int {
     /**
      Blank.
 
@@ -399,6 +399,21 @@ public final class NVActivityIndicatorView: UIView {
         super.init(coder: aDecoder)
         backgroundColor = UIColor.clear
         isHidden = true
+    }
+    
+    public static func with(frame: CGRect) -> NVActivityIndicatorView {
+        
+        return NVActivityIndicatorView(frame: frame)
+    }
+    
+    public convenience init(frame: CGRect, type: NVActivityIndicatorType) {
+        
+        self.init(frame: frame, type: type, color: nil, padding: nil)
+    }
+    
+    public convenience init(frame: CGRect, type: NVActivityIndicatorType, color: UIColor?) {
+        
+        self.init(frame: frame, type: type, color: color, padding: nil)
     }
 
     /**

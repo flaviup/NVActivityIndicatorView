@@ -27,7 +27,7 @@
 
 import UIKit
 
-enum NVActivityIndicatorShape {
+@objc public enum NVActivityIndicatorShape: Int {
     case circle
     case circleSemi
     case ring
@@ -148,5 +148,13 @@ enum NVActivityIndicatorShape {
         layer.frame = CGRect(x: 0, y: 0, width: size.width, height: size.height)
 
         return layer
+    }
+}
+
+public final class NVActivityIndicatorShapeUtil: NSObject {
+    
+    public static func layerWith(shape: NVActivityIndicatorShape, size: CGSize, color: UIColor) -> CALayer {
+    
+        return shape.layerWith(size: size, color: color)
     }
 }

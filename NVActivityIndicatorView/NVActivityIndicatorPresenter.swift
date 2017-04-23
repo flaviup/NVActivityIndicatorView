@@ -28,7 +28,7 @@
 import UIKit
 
 /// Class packages information used to display UI blocker.
-public final class ActivityData {
+public final class ActivityData: NSObject {
     /// Size of activity indicator view.
     let size: CGSize
 
@@ -58,6 +58,81 @@ public final class ActivityData {
 
     /// Background color of the UI blocker
     let backgroundColor: UIColor
+    
+    public convenience override init() {
+        
+        self.init(size: nil,
+                  message: nil,
+                  messageFont: nil,
+                  type: nil,
+                  color: nil,
+                  padding: nil,
+                  displayTimeThreshold: nil,
+                  minimumDisplayTime: nil,
+                  backgroundColor: nil,
+                  textColor: nil
+                 )
+    }
+    
+    public convenience init(type: NVActivityIndicatorType) {
+        
+        self.init(size: nil,
+                  message: nil,
+                  messageFont: nil,
+                  type: type,
+                  color: nil,
+                  padding: nil,
+                  displayTimeThreshold: nil,
+                  minimumDisplayTime: nil,
+                  backgroundColor: nil,
+                  textColor: nil
+                 )
+    }
+    
+    public convenience init(type: NVActivityIndicatorType,
+                            size: CGSize,
+                            message: String?,
+                            messageFont: UIFont?,
+                            color: UIColor?,
+                            padding: NSNumber?,
+                            displayTimeThreshold: NSNumber?,
+                            minimumDisplayTime: NSNumber?,
+                            backgroundColor: UIColor?,
+                            textColor: UIColor?) {
+        self.init(size: size,
+                  message: message,
+                  messageFont: messageFont,
+                  type: type,
+                  color: color,
+                  padding: padding == nil ? nil : CGFloat(padding!),
+                  displayTimeThreshold: displayTimeThreshold == nil ? nil : Int(displayTimeThreshold!),
+                  minimumDisplayTime: minimumDisplayTime == nil ? nil : Int(minimumDisplayTime!),
+                  backgroundColor: backgroundColor,
+                  textColor: textColor
+                 )
+    }
+    
+    public convenience init(type: NVActivityIndicatorType,
+                            message: String?,
+                            messageFont: UIFont?,
+                            color: UIColor?,
+                            padding: NSNumber?,
+                            displayTimeThreshold: NSNumber?,
+                            minimumDisplayTime: NSNumber?,
+                            backgroundColor: UIColor?,
+                            textColor: UIColor?) {
+        self.init(size: nil,
+                  message: message,
+                  messageFont: messageFont,
+                  type: type,
+                  color: color,
+                  padding: padding == nil ? nil : CGFloat(padding!),
+                  displayTimeThreshold: displayTimeThreshold == nil ? nil : Int(displayTimeThreshold!),
+                  minimumDisplayTime: minimumDisplayTime == nil ? nil : Int(minimumDisplayTime!),
+                  backgroundColor: backgroundColor,
+                  textColor: textColor
+        )
+    }
 
     /**
      Create information package used to display UI blocker.
@@ -100,7 +175,7 @@ public final class ActivityData {
 }
 
 /// Presenter that displays NVActivityIndicatorView as UI blocker.
-public final class NVActivityIndicatorPresenter {
+public final class NVActivityIndicatorPresenter: NSObject {
     private enum State {
         case waitingToShow
         case showed
@@ -125,7 +200,7 @@ public final class NVActivityIndicatorPresenter {
     /// Shared instance of `NVActivityIndicatorPresenter`.
     public static let sharedInstance = NVActivityIndicatorPresenter()
 
-    private init() {}
+    private override init() {}
 
     // MARK: - Public interface
 
